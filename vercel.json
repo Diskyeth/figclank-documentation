@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd figclank-docs && npm install && npm run build",
-  "outputDirectory": "figclank-docs/.next",
-  "installCommand": "cd figclank-docs && npm install",
-  "framework": "nextjs"
-}
