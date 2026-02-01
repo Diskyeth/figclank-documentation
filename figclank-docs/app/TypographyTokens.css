@@ -1,0 +1,36 @@
+/* Typography Tokens - Centralized typography definitions */
+
+:root {
+  /* Font Sizes */
+  --typography-12px: 0.75rem; /* 12px - used in dialog headers */
+  --typography-14px: 0.875rem; /* 14px - used for dates, descriptions */
+  --typography-15px: 0.9375rem; /* 15px - used in new design card */
+  --typography-16px: 1rem; /* 16px - default size */
+  --typography-18px: 1.125rem; /* 18px - used for sign-in message */
+  --typography-20px: 1.25rem; /* 20px - used in headings */
+  --typography-24px: 1.5rem; /* 24px - used in large headings */
+  --typography-32px: 2rem; /* 32px - used in welcome card */
+
+  /* Font Weights */
+  --typography-light: 300; /* light weight */
+  --typography-regular: 400; /* regular/normal weight */
+  --typography-medium: 500; /* used in headings and buttons */
+  --typography-semibold: 600; /* used in card titles */
+  --typography-bold: 700; /* bold weight */
+
+  /* Font Styles */
+  --typography-italic: italic; /* italic style */
+
+  /* Text Utilities */
+  --typography-transform-uppercase: uppercase; /* text transform uppercase */
+  --typography-overflow-truncate: ellipsis; /* text overflow ellipsis */
+  --typography-align-center: center; /* text alignment */
+  --typography-align-left: left; /* text alignment */
+  --typography-align-right: right; /* text alignment */
+  --typography-align-justify: justify; /* text alignment */
+
+  /* Line Heights */
+  --line-height-tight: 1.25; /* tight line height */
+  --line-height-base: 1.5; /* base line height */
+  --line-height-relaxed: 1.75; /* relaxed line height */
+}

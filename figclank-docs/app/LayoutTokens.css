@@ -1,0 +1,77 @@
+/* Layout Tokens - Centralized layout definitions */
+
+:root {
+  /* Border Radius */
+  --layout-radius-8px: 0.5rem; /* 8px */
+  --layout-radius-12px: 0.75rem; /* 12px */
+  --layout-radius-16px: 1rem; /* 16px */
+  --layout-radius-24px: 1.5rem; /* 24px */
+  --layout-radius-32px: 2rem; /* 32px */
+
+
+  /* Spacing - Padding Horizontal */
+  --layout-padding-x-12px: 0.75rem; /* 12px */
+  --layout-padding-x-16px: 1rem; /* 16px */
+  --layout-padding-x-24px: 1.5rem; /* 24px */
+  --layout-padding-x-32px: 2rem; /* 32px */
+
+  /* Spacing - Padding Vertical */
+  --layout-padding-y-4px: 0.25rem; /* 4px */
+  --layout-padding-y-8px: 0.5rem; /* 8px */
+  --layout-padding-y-12px: 0.75rem; /* 12px */
+  --layout-padding-y-16px: 1rem; /* 16px */
+  --layout-padding-y-24px: 1.5rem; /* 24px */
+  --layout-padding-y-32px: 2rem; /* 32px */
+
+  /* Spacing - Padding All Sides */
+  --layout-padding-4px: 0.25rem; /* 4px */
+  --layout-padding-8px: 0.5rem; /* 8px */
+  --layout-padding-12px: 0.75rem; /* 12px */
+  --layout-padding-16px: 1rem; /* 16px */
+  --layout-padding-24px: 1.5rem; /* 24px */
+  --layout-padding-32px: 2rem; /* 32px */
+  --layout-padding-64px: 4rem; /* 64px */
+
+
+  /* Spacing - Margin Top */
+  --layout-margin-top-4px: 0.25rem; /* 4px */
+  --layout-margin-top-8px: 0.5rem; /* 8px */
+  --layout-margin-top-12px: 0.75rem; /* 12px */
+  --layout-margin-top-16px: 1rem; /* 16px */
+  --layout-margin-top-24px: 1.5rem; /* 24px */
+  --layout-margin-top-32px: 2rem; /* 32px */
+  --layout-margin-top-64px: 4rem; /* 64px */
+
+  /* Spacing - Margin Bottom */
+  --layout-margin-bottom-4px: 0.25rem; /* 4px */
+  --layout-margin-bottom-8px: 0.5rem; /* 8px */
+  --layout-margin-bottom-12px: 0.75rem; /* 12px */
+  --layout-margin-bottom-16px: 1rem; /* 16px */
+  --layout-margin-bottom-24px: 1.5rem; /* 24px */
+  --layout-margin-bottom-32px: 2rem; /* 32px */
+
+  /* Spacing - Gaps */
+  --layout-gap-4px: 0.25rem; /* 4px */
+  --layout-gap-6px: 0.375rem; /* 6px */
+  --layout-gap-8px: 0.5rem; /* 8px */
+  --layout-gap-10px: 0.625rem; /* 10px */
+  --layout-gap-12px: 0.75rem; /* 12px */
+  --layout-gap-14px: 0.875rem; /* 14px */
+  --layout-gap-16px: 1rem; /* 16px */
+  --layout-gap-20px: 1.25rem; /* 20px */
+  --layout-gap-24px: 1.5rem; /* 24px */
+  --layout-gap-28px: 1.75rem; /* 28px */
+  --layout-gap-32px: 2rem; /* 32px */
+  --layout-gap-16px: 1rem; /* 16px */
+  --layout-gap-24px: 1.5rem; /* 24px */
+
+  /* Borders */
+  --layout-border-width: 1px;
+  --layout-border-style: solid;
+  --layout-border-color: var(--color-primary-grey-200); /* border color variable */
+
+  /* Effects */
+  --layout-shadow-large: 0 25px 50px -12px var(--color-black-25); /* large shadow */
+  --layout-backdrop-blur-24px: blur(24px); /* backdrop blur effect */
+  --layout-backdrop-blur-16px: blur(16px); /* backdrop blur effect */
+}
