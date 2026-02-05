@@ -160,8 +160,8 @@ export default function HomePage() {
           <h2 className="text-2xl font-semibold">MCP Integration</h2>
         </div>
         <p className="text-foreground-muted mb-8 max-w-2xl">
-          FigClank provides a read-only MCP server for AI agents to access design
-          documents and convert them to code.
+          FigClank provides an MCP server for AI agents to read and mutate design
+          documents, export assets, and convert designs to code.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {mcpLinks.map((link) => (

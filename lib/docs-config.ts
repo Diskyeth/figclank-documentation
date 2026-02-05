@@ -87,12 +87,17 @@ export const docsConfig: DocSection[] = [
     ],
   },
   {
-    title: "MCP Integration",
+    title: "MCP & Agents",
     pages: [
+      {
+        title: "MCP Guide",
+        href: "/docs/mcp",
+        description: "Installation, architecture, and features of the FigClank MCP",
+      },
       {
         title: "Agent Guide",
         href: "/docs/mcp/agent-guide",
-        description: "Guide for AI agents using FigClank MCP",
+        description: "Quick reference for AI agents using FigClank MCP",
       },
       {
         title: "Design Contract",

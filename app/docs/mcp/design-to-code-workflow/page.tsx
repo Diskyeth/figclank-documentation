@@ -17,7 +17,7 @@ export default function MCPDesignToCodeWorkflowPage() {
     >
       <Section title="Overview">
         <Paragraph>
-          The FigClank MCP provides read-only access to design documents,
+          The FigClank MCP provides read and write access to design documents,
           enabling agents to:
         </Paragraph>
         <List

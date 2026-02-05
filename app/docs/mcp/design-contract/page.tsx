@@ -6,20 +6,19 @@ import {
   List,
   CodeBlock,
   ToolTable,
-  Note,
 } from "@/components/docs";
 
 export default function MCPDesignContractPage() {
   return (
     <DocContent
       title="FigClank MCP Design Contract"
-      description="The stable contract for the FigClank read-only MCP server."
+      description="The stable contract for the FigClank MCP server."
     >
       <Section title="Overview">
         <List
           items={[
-            <><strong>Mode:</strong> Read-only. No mutations are allowed via MCP.</>,
-            <><strong>Auth:</strong> Wallet-based authentication. All document-scoped tools require user authentication.</>,
+            <><strong>Mode:</strong> Read and write. Supports read operations and write operations via agent_* mutation tools.</>,
+            <><strong>Auth:</strong> OAuth 2.1. All document-scoped tools require user authentication.</>,
             <><strong>Units:</strong> All dimensions are in <strong>pixels (px)</strong> unless otherwise noted.</>,
             <><strong>IDs:</strong> All identifiers (nodeId, documentId, componentId, styleId) are strings.</>,
           ]}
@@ -168,10 +167,10 @@ export default function MCPDesignContractPage() {
         <Subsection title="Discovery">
           <ToolTable
             tools={[
-              { name: "auth.whoami", description: "Get current user info" },
-              { name: "workspace.listProjects", description: "List user's projects/designs" },
-              { name: "documents.list", description: "List documents in a project" },
-              { name: "documents.get", description: "Get document metadata" },
+              { name: "auth_whoami", description: "Get authenticated user info" },
+              { name: "workspace_listProjects", description: "List user's projects/designs" },
+              { name: "documents_list", description: "List documents with pagination" },
+              { name: "documents_get", description: "Get document metadata" },
             ]}
           />
         </Subsection>
@@ -179,8 +178,8 @@ export default function MCPDesignContractPage() {
         <Subsection title="Snapshots & History">
           <ToolTable
             tools={[
-              { name: "documents.getSnapshot", description: "Get lightweight snapshot summary" },
-              { name: "history.listVersions", description: "List document versions" },
+              { name: "documents_getSnapshot", description: "Get lightweight snapshot summary (pin version)" },
+              { name: "history_listVersions", description: "List document versions" },
             ]}
           />
         </Subsection>
@@ -188,10 +187,10 @@ export default function MCPDesignContractPage() {
         <Subsection title="Node Inspection">
           <ToolTable
             tools={[
-              { name: "nodes.get", description: "Get single node" },
-              { name: "nodes.listChildren", description: "List children of a node" },
-              { name: "nodes.getSubtree", description: "Get subtree with depth limit" },
-              { name: "nodes.query", description: "Query nodes by criteria" },
+              { name: "nodes_get", description: "Get single node" },
+              { name: "nodes_listChildren", description: "List children of a node" },
+              { name: "nodes_getSubtree", description: "Get subtree with depth limit" },
+              { name: "nodes_query", description: "Query nodes by criteria" },
             ]}
           />
         </Subsection>
@@ -199,10 +198,10 @@ export default function MCPDesignContractPage() {
         <Subsection title="Design System">
           <ToolTable
             tools={[
-              { name: "components.list", description: "List components" },
-              { name: "components.get", description: "Get component definition" },
-              { name: "styles.list", description: "List styles" },
-              { name: "tokens.get", description: "Get design tokens" },
+              { name: "components_list", description: "List components" },
+              { name: "components_get", description: "Get component definition" },
+              { name: "styles_list", description: "List styles" },
+              { name: "tokens_get", description: "Get design tokens" },
             ]}
           />
         </Subsection>
@@ -210,22 +209,34 @@ export default function MCPDesignContractPage() {
         <Subsection title="Export / Render">
           <ToolTable
             tools={[
-              { name: "render.thumbnail", description: "Get node thumbnail" },
-              { name: "export.svg", description: "Export node as SVG" },
-              { name: "export.png", description: "Export node as PNG" },
+              { name: "render_thumbnail", description: "Get node thumbnail" },
+              { name: "export_svg", description: "Export node as SVG" },
+              { name: "export_png", description: "Export node as PNG" },
+              { name: "export_html", description: "Export frame as HTML" },
+              { name: "export_css", description: "Generate CSS, Tailwind, or React Native styles" },
+              { name: "resolve_asset_url", description: "Resolve image reference to public URL" },
+            ]}
+          />
+        </Subsection>
+
+        <Subsection title="Agent Mutation">
+          <ToolTable
+            tools={[
+              { name: "agent_getSelectionSnapshot", description: "Get selection for planner" },
+              { name: "agent_updateNode", description: "Update node properties" },
+              { name: "agent_createShape", description: "Create rectangle, ellipse, frame, triangle" },
+              { name: "agent_createText", description: "Create text node" },
+              { name: "agent_wrapInAutoLayout", description: "Wrap selection in auto layout" },
+              { name: "agent_alignNodes", description: "Align selection" },
+              { name: "agent_distributeNodes", description: "Distribute nodes" },
+              { name: "agent_groupNodes", description: "Group selection" },
+              { name: "agent_ungroupNodes", description: "Ungroup GROUP" },
+              { name: "agent_createComponentFromSelection", description: "Convert selection to component" },
             ]}
           />
         </Subsection>
       </Section>
 
-      <Section title="Read-Only Guarantee">
-        <Note title="Important">
-          This MCP server is <strong>strictly read-only</strong>. No tools
-          modify document state. No tools create, update, or delete nodes. No
-          tools change styles, components, or tokens. All operations are
-          idempotent. To edit designs, use the FigClank web application.
-        </Note>
-      </Section>
 
       <Section title="Error Codes">
         <ToolTable
@@ -246,10 +257,10 @@ export default function MCPDesignContractPage() {
         <CodeBlock
           language="typescript"
           code={`// Load a specific version (deterministic)
-nodes.get({ nodeId, documentId, version: 42 })
+call('nodes_get', { nodeId, documentId, version: 42 })
 
 // Load latest (may change between calls)
-nodes.get({ nodeId, documentId })`}
+call('nodes_get', { nodeId, documentId })`}
         />
         <Paragraph>
           Agents should pass <code>version</code> for reproducible codegen workflows.

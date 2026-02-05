@@ -22,17 +22,9 @@ export default function MCPAgentGuidePage() {
           items={[
             <><strong>Read</strong> nodes, styles, components, and tokens from design documents</>,
             <><strong>Query</strong> nodes by type, name, component, size, and text style</>,
-            <><strong>Export</strong> nodes as SVG (PNG support limited)</>,
+            <><strong>Export</strong> nodes as SVG, PNG, HTML, or CSS</>,
             <><strong>Inspect</strong> screens for layout, component usage, and text content</>,
-          ]}
-        />
-        <Paragraph>This MCP <strong>cannot</strong>:</Paragraph>
-        <List
-          items={[
-            "Create, update, or delete nodes",
-            "Modify styles, components, or tokens",
-            "Edit document structure",
-            "Write any data",
+            <><strong>Mutate</strong> designs: create shapes/text, update nodes, align, distribute, group, wrap in auto layout, create components</>,
           ]}
         />
       </Section>
@@ -44,8 +36,13 @@ export default function MCPAgentGuidePage() {
 3. nodes_query → Find target screen/frame
 4. nodes_getSubtree → Get screen node tree
 5. components_get → Resolve INSTANCE references
-6. export_svg → Export icons/vectors as needed
-7. Generate code using gathered information`}
+6. export_svg / export_css → Export assets or generate styles
+7. Generate code using gathered information
+
+For mutations:
+8. agent_getSelectionSnapshot → Get selection for planner
+9. agent_updateNode, agent_createShape, etc. → Apply changes
+10. User clicks Sync from MCP in app to pull updates`}
         />
       </Section>
 
@@ -215,6 +212,26 @@ if (node.type === 'VECTOR') {
             positioned elements. Some frames mix both approaches.
           </Paragraph>
         </Subsection>
+      </Section>
+
+      <Section title="Agent Mutation Tools">
+        <Paragraph>
+          Agents can mutate designs with these tools:
+        </Paragraph>
+        <ToolTable
+          tools={[
+            { name: "agent_getSelectionSnapshot", description: "Compact JSON of selection for planner context" },
+            { name: "agent_updateNode", description: "Update fills, effects, width, height, cornerRadius, opacity" },
+            { name: "agent_createShape", description: "Create rectangle, ellipse, frame, or triangle" },
+            { name: "agent_createText", description: "Create a text node" },
+            { name: "agent_wrapInAutoLayout", description: "Wrap selection in auto layout frame" },
+            { name: "agent_alignNodes", description: "Align selection (left, center, right, top, middle, bottom)" },
+            { name: "agent_distributeNodes", description: "Distribute with even spacing" },
+            { name: "agent_groupNodes", description: "Group selection into GROUP" },
+            { name: "agent_ungroupNodes", description: "Ungroup a GROUP" },
+            { name: "agent_createComponentFromSelection", description: "Convert selection to reusable component" },
+          ]}
+        />
       </Section>
 
       <Section title="Rate Limits">
