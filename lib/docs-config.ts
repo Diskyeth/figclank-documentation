@@ -104,11 +104,6 @@ export const docsConfig: DocSection[] = [
         href: "/docs/mcp/design-contract",
         description: "MCP design contract specification",
       },
-      {
-        title: "Design to Code Workflow",
-        href: "/docs/mcp/design-to-code-workflow",
-        description: "Converting designs to code with MCP",
-      },
     ],
   },
 ];

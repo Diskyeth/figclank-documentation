@@ -65,11 +65,6 @@ const mcpLinks = [
     description: "MCP schema specification",
     href: "/docs/mcp/design-contract",
   },
-  {
-    title: "Design to Code",
-    description: "Workflow for code generation",
-    href: "/docs/mcp/design-to-code-workflow",
-  },
 ];
 
 export default function HomePage() {
