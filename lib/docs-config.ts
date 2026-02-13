@@ -87,6 +87,31 @@ export const docsConfig: DocSection[] = [
     ],
   },
   {
+    title: "Visual Nodes",
+    pages: [
+      {
+        title: "Overview",
+        href: "/docs/visual-nodes",
+        description: "Introduction to the Design Agent canvas and visual node workflow",
+      },
+      {
+        title: "Node Reference",
+        href: "/docs/visual-nodes/node-reference",
+        description: "Complete reference for all 19 visual nodes",
+      },
+      {
+        title: "Tools & Menus",
+        href: "/docs/visual-nodes/tools-menus",
+        description: "Connector wires, context menu, toolbar, and pie menu",
+      },
+      {
+        title: "Connection Guide",
+        href: "/docs/visual-nodes/connection-guide",
+        description: "How nodes connect and special connection rules",
+      },
+    ],
+  },
+  {
     title: "MCP & Agents",
     pages: [
       {

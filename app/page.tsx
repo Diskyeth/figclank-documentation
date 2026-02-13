@@ -52,6 +52,12 @@ const quickLinks = [
     href: "/docs/getting-started/keyboard-shortcuts",
     icon: "keyboard", // Using Lucide for this one as no keyboard icon exists
   },
+  {
+    title: "Visual Nodes",
+    description: "Design Agent canvas and node workflow",
+    href: "/docs/visual-nodes",
+    icon: "/iconsEditor_/IconEditor=component.svg",
+  },
 ];
 
 const mcpLinks = [
